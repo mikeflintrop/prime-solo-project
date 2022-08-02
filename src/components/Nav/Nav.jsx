@@ -32,6 +32,10 @@ function Nav() {
               Info Page
             </Link>
 
+            <Link className="navLink" to="/current">
+              Current Workout
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

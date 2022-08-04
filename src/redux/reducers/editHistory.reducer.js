@@ -1,6 +1,4 @@
-// hold only the single student object being edited
-// payload: { property: 'github_name', value: event.target.value }
-const editHistory = (state  = {}, action) => {
+const editHistoryReducer = (state  = {}, action) => {
     if(action.type === 'SET_EDIT_HISTORY') {
         // action.payload is object from database
         return action.payload;
@@ -16,4 +14,8 @@ const editHistory = (state  = {}, action) => {
     }
 
     return state;
-}
+};
+
+// user will be on the redux state at:
+// state.user
+export default editHistoryReducer;

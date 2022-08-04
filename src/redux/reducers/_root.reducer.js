@@ -8,6 +8,7 @@ import numberSets from './numberSets.reducer';
 import duration from './duration.reducer';
 import history from './history.reducer';
 import deleteHistory from './deleteHistory.reducer';
+import editHistory from './editHistory.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   duration, // will have duration for all exercises
   history, // will have history for every workout
   deleteHistory, // will deleteHistory for every workout
+  editHistory, // will have editHistory for every workout
 });
 
 export default rootReducer;

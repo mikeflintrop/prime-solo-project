@@ -2,21 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
-import WorkoutHistoryItem from '../WorkoutHistoryItem/WorkoutHistoryItem';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function WorkoutHistory(props) {
+function WorkoutHistoryItem({item}) {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
     const history = useSelector(store => store.history);
     const [heading, setHeading] = useState('Workout History');
-    
+    const [isEditting, setIsEditting] = useState(false);
 
     const editHistory = useSelector((store) => store.editHistory);
+
+    // flip pics function
+    const handleRendering = () => {
+        if (isEditting) {
+            setIsEditting(false);
+        } else {
+            setIsEditting(true);
+        }
+    };
 
     function handleChange(event, property) {
         dispatch({ 
@@ -43,7 +51,7 @@ function WorkoutHistory(props) {
             })   
     };
 
-    // console.log('this is user id', user.id);
+    console.log('this is user id', user.id);
 
 
     useEffect(() => {
@@ -60,7 +68,7 @@ function WorkoutHistory(props) {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
     };
 
-    const editHistoryItem = (item) => {
+    const handleEditting = (item) => {
         console.log("start of editTheItem");
         console.log('this is item.id', item.id);
         dispatch({
@@ -72,15 +80,26 @@ function WorkoutHistory(props) {
 
 
     return (
-        <div>
-            <h2>{heading}</h2>
-                {history?.map((item) => {
-                    return (
-                        <WorkoutHistoryItem item={item} key={item.id}/>
-                    )
-                })}
+        <div key={item.id} >
+            <h6>Workout Date: {item.date}</h6>
+            <h6>Workout Duration: {item.duration}</h6>
+            <h6>Workout Notes: {item.notes}</h6>
+            {!isEditting ? (
+                <button onClick={(event) => setIsEditting(!isEditting)}>Edit</button>
+                ) : (
+                <form onSubmit={handleEditting}>
+                    <input 
+                    onChange={(event) => setNotes(event.target.value)}
+                    type="text" 
+                    placeholder='update notes' 
+                    value={item.notes || ''}
+                    />
+                    <button type='submit'>Submit</button>
+                </form>
+            )}
+            <button onClick={(event) => deleteHistoryItem(item)}>Delete</button>
         </div>
     );
 }
 
-export default WorkoutHistory;
+export default WorkoutHistoryItem;

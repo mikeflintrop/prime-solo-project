@@ -27,8 +27,24 @@ function* fetchHistory(action) {
     }
 };
 
+function* deleteHistoryItem(action) {
+    console.log('this is action', action.payload);
+    try {
+        const config = {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+        };
+        yield axios.delete(`/api/history/${action.payload}`, config)
+        yield put({type: 'REMOVE_HISTORY_ITEM'});
+    }
+    catch (error) {
+        console.log('item to be deleted', error);
+    }
+}
+
 function* historySaga() {
     yield takeLatest('FETCH_HISTORY', fetchHistory);
+    yield takeLatest('DELETE_HISTORY_ITEM', deleteHistoryItem);
 }
 
 export default historySaga;

@@ -25,7 +25,7 @@ function* fetchExercises() {
 }
 
 function* exercisesSaga() {
-    yield takeLatest('FETCH_EXERCISES', fetchExercises);
+    // yield takeLatest('FETCH_EXERCISES', fetchExercises);
 }
 
 export default exercisesSaga;

@@ -20,14 +20,14 @@ function CurrentWorkout(props) {
     }
 
     useEffect(()=>{
-        dispatch({type: 'FETCH_EXERCISES' });
+        // dispatch({type: 'FETCH_EXERCISES' });
         // dispatch({type: 'FETCH_GENRES', payload: id });
     },[])
 
 
     return (
         <div>
-            <h2>{heading}</h2>
+            {/* <h2>{heading}</h2>
             <h4>Exercises</h4>
                 {exercises.map((exercise, i)=>{
                     return(
@@ -36,7 +36,7 @@ function CurrentWorkout(props) {
                             <img src={exercise.gifUrl} alt={exercise.name}/>
                         </div>
                     )
-                })}
+                })} */}
 
             {/* <Button 
                 variant="outlined" 

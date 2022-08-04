@@ -4,10 +4,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* postDuration(action) {
     try {
-        // const config = {
-        // headers: { 'Content-Type': 'application/json' },
-        // withCredentials: true,
-        // };
+        const config = {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+        };
 
         // the config includes credentials which
         // allow the server session to recognize the user
@@ -16,7 +16,7 @@ function* postDuration(action) {
         const duration = {duration: Number(action.payload)}
         console.log('action.payload in postDuration:', duration)
 
-        yield axios.post('/api/history', duration);
+        yield axios.post('/api/history', duration, config);
         // yield put({type: 'POST_DURATION', payload: action.payload});
     // now that the session has given us a user object
     // with an id and username set the client-side user object to let

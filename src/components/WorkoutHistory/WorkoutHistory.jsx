@@ -10,6 +10,7 @@ function WorkoutHistory(props) {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     const store = useSelector((store) => store);
+    const history = useSelector(store => store.history);
     const [heading, setHeading] = useState('Workout History');
 
     let id = useParams();

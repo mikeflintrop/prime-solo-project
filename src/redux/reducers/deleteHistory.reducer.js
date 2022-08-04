@@ -1,6 +1,6 @@
-const historyReducer = (state = [], action) => {
+const deleteHistoryReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_HISTORY':
+        case 'REMOVE_HISTORY_ITEM':
             return action.payload;
         default:
             return state;
@@ -9,4 +9,4 @@ const historyReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default historyReducer;
+export default deleteHistoryReducer;

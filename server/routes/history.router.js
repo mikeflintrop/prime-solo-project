@@ -40,4 +40,27 @@ router.post('/', (req, res) => {
     });
 });
 
+/**
+ * Delete an item if it's something the logged in user added
+ */
+router.delete('/:id', (req, res) => {
+    console.log('This shall be req.params', req.params.id);
+    const id = req.params.id
+
+    const user = req.user.id
+    console.log('This is the user', user);
+
+    const queryText = 'DELETE FROM "workout_history" WHERE id = $1;';
+
+    pool.query(queryText, [id])
+        .then((result) => {
+        res.sendStatus(201);
+        })
+        .catch((error) => {
+        console.log('something wrong in /shelf DELETE', error);
+        res.sendStatus(500);
+        })
+    // endpoint functionality
+});
+
 module.exports = router;

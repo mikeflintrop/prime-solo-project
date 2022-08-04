@@ -6,6 +6,7 @@ import workTime from './workTime.reducer';
 import restTime from './restTime.reducer';
 import numberSets from './numberSets.reducer';
 import duration from './duration.reducer';
+import history from './history.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   restTime, // will have restTime for every exercise
   numberSets, // will have numberSets for every exercise
   duration, // will have duration for all exercises
+  history, // will have history for every workout
 });
 
 export default rootReducer;

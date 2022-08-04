@@ -14,6 +14,7 @@ function WorkoutHistoryItem({item}) {
     const history = useSelector(store => store.history);
     const [heading, setHeading] = useState('Workout History');
     const [isEditting, setIsEditting] = useState(false);
+    const [notes, setNotes] = useState('');
 
     const editHistory = useSelector((store) => store.editHistory);
 
@@ -68,12 +69,14 @@ function WorkoutHistoryItem({item}) {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
     };
 
-    const handleEditting = (item) => {
+    const handleEditting = (event) => {
+        event.preventDefault();
+
         console.log("start of editTheItem");
-        console.log('this is item.id', item.id);
+        // console.log('this is item.notes', item.notes);
         dispatch({
-            type: 'EDIT_HISTORY_ITEM',
-            payload: item.notes
+            type: 'UPDATE_HISTORY_ITEM',
+            payload: event.target.value
         });
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
     };

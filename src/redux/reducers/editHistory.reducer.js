@@ -1,19 +1,10 @@
 const editHistoryReducer = (state  = {}, action) => {
-    if(action.type === 'SET_EDIT_HISTORY') {
-        // action.payload is object from database
-        return action.payload;
-    } else if (action.type === 'EDIT_ONCHANGE') {
-        return {
-            // spread - give me all of the object 
-            ...state,
-            // change this one in particular
-            [action.payload.property]: action.payload.value
-        }
-    } else if (action.type === 'EDIT_CLEAR') {
-        return {notes: ''};
+    switch (action.type) {
+        case 'EDIT_HISTORY_ITEM':
+            return action.payload;   
+        default:
+            return state;
     }
-
-    return state;
 };
 
 // user will be on the redux state at:

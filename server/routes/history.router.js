@@ -57,10 +57,31 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(201);
         })
         .catch((error) => {
-        console.log('something wrong in /shelf DELETE', error);
+        console.log('something wrong in /history DELETE', error);
         res.sendStatus(500);
         })
     // endpoint functionality
+});
+
+router.put('/:id', (req, res) => {
+    console.log('This shall be req.params', req.params.id);
+    console.log('This shall be req.body', req.body.notes);
+	let id = req.params.id;
+
+    const user = req.user.id
+    console.log('This is the user', user);
+
+    const queryText = `UPDATE "workout_history" SET "notes" = $1 WHERE id = $2;`;
+    pool.query(queryText, [req.body.notes, id])
+		.then((result) => {
+			// Sends back the results in an object
+			res.send(result.rows);
+            res.sendStatus(200);
+		})
+		.catch((error) => {
+			console.log('error UPDATEing history', error);
+			res.sendStatus(500);
+		});
 });
 
 module.exports = router;

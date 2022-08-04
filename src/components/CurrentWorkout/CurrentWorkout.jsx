@@ -31,13 +31,13 @@ function CurrentWorkout(props) {
 
     return (
         <div>
-            <h4>Work Time: {workTime}</h4>
-            <h4>Rest Time: {restTime}</h4>
-            <h4>Number of Sets: {numberSets}</h4>
-            <h4>Duration: {duration}</h4>
-            {/* <h2>{heading}</h2>
+            <h2>{heading}</h2>
+            <h6>Work Time: {workTime}</h6>
+            <h6>Rest Time: {restTime}</h6>
+            <h6>Number of Sets: {numberSets}</h6>
+            <h6>Duration: {duration}</h6>
             <h4>Exercises</h4>
-                {exercises.map((exercise, i)=>{
+                {/* {exercises.map((exercise, i)=>{
                     return(
                         <div>
                             <h5 key={i}>{exercise.name}</h5>

@@ -21,8 +21,10 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import CurrentWorkout from '../CurrentWorkout/CurrentWorkout';
 import NewWorkout from '../NewWorkout/NewWorkout';
+import WorkoutHistory from '../WorkoutHistory/WorkoutHistory';
 
 import './App.css';
+
 
 
 function App() {
@@ -85,6 +87,14 @@ function App() {
             path="/current"
           >
             <CurrentWorkout />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows CurrentWorkout else shows LoginPage
+            exact
+            path="/history"
+          >
+            <WorkoutHistory />
           </ProtectedRoute>
 
           <Route

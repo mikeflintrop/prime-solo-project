@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import CurrentWorkout from '../CurrentWorkout/CurrentWorkout';
+import NewWorkout from '../NewWorkout/NewWorkout';
 
 import './App.css';
 
@@ -68,6 +69,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows CurrentWorkout else shows LoginPage
+            exact
+            path="/new"
+          >
+            <NewWorkout />
           </ProtectedRoute>
 
           <ProtectedRoute

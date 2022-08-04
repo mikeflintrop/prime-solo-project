@@ -1,7 +1,7 @@
 const deleteHistoryReducer = (state = [], action) => {
     switch (action.type) {
         case 'REMOVE_HISTORY_ITEM':
-            return action.payload;
+            return [];
         default:
             return state;
     }

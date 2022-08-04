@@ -9,17 +9,18 @@ import axios from 'axios';
 function WorkoutHistory(props) {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
-    const store = useSelector((store) => store);
+    const dispatch = useDispatch();
+    const user = useSelector((store) => store.user);
     const history = useSelector(store => store.history);
     const [heading, setHeading] = useState('Workout History');
 
-    let id = useParams();
+    // let {id} = useParams();
 
-    console.log('this is user id', id);
+    console.log('this is user id', user.id);
 
 
     useEffect(() => {
-        dispatch({ type: "FETCH_HISTORY", payload: id });
+        dispatch({ type: "FETCH_HISTORY", payload: user.id });
     }, []);
 
     return (

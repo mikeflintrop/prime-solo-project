@@ -6,8 +6,19 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+    // GET route code here
+    console.log( 'in router.get history/id:', req.user.id );
+    let id = req.user.id
+    const queryText = `SELECT * FROM "workout_history" WHERE "user_id" = $1 ORDER BY "id" DESC;`;
+    pool.query(queryText, [id])
+    .then(results => {
+        res.send(results.rows);
+    }).catch( ( error ) => {
+        console.log('error in router.get/:id', error);
+        res.sendStatus( 500 );
+    });
 });
+
 
 /**
  * POST route template

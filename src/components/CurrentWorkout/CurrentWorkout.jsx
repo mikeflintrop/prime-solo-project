@@ -13,6 +13,10 @@ function CurrentWorkout(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const exercises = useSelector((store) => store.exercises);
+    const workTime = useSelector((store) => store.workTime);
+    const restTime = useSelector((store) => store.restTime);
+    const numberSets = useSelector((store) => store.numberSets);
+    const duration = useSelector((store) => store.duration);
     const [heading, setHeading] = useState('Current Workout');
 
     const returnToNewWorkout = () => {
@@ -27,6 +31,10 @@ function CurrentWorkout(props) {
 
     return (
         <div>
+            <h4>Work Time: {workTime}</h4>
+            <h4>Rest Time: {restTime}</h4>
+            <h4>Number of Sets: {numberSets}</h4>
+            <h4>Duration: {duration}</h4>
             {/* <h2>{heading}</h2>
             <h4>Exercises</h4>
                 {exercises.map((exercise, i)=>{

@@ -1,6 +1,6 @@
 const durationReducer = (state = '', action) => {
     switch (action.type) {
-        case 'POST_DURATION':
+        case 'ADD_DURATION':
             return action.payload;   
         default:
             return state;

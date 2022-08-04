@@ -1,6 +1,6 @@
 const restTimeReducer = (state = '', action) => {
     switch (action.type) {
-        case 'SET_REST_TIME':
+        case 'ADD_REST_TIME':
             return action.payload; 
         default:
             return state;

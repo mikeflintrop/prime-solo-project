@@ -1,6 +1,6 @@
 const workTimeReducer = (state = '', action) => {
     switch (action.type) {
-        case 'SET_WORK_TIME':
+        case 'ADD_WORK_TIME':
             return action.payload;
         default:
             return state;

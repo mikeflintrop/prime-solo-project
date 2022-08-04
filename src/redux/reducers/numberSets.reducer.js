@@ -1,6 +1,6 @@
 const numberSetsReducer = (state = '', action) => {
     switch (action.type) {
-        case 'SET_NUMBER_SETS':
+        case 'ADD_NUMBER_SETS':
             return action.payload; 
         default:
             return state;

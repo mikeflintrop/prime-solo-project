@@ -23,17 +23,27 @@ function WorkoutHistory(props) {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
     }, []);
 
+    const deleteHistoryItem = (item) => {
+        console.log("start of deleteTheItem");
+        console.log('this is item.id', item.id);
+        dispatch({
+            type: 'DELETE_HISTORY_ITEM',
+            payload: item.id
+        });
+        dispatch({ type: "FETCH_HISTORY", payload: user.id });
+    };
+
     return (
         <div>
             <h2>{heading}</h2>
                 {history?.map((item) => {
                     return (
                         <div key={item.id} >
-                            <h3>Workout Date: {item.date}</h3>
-                            <h3>Workout Duration: {item.duration}</h3>
-                            <h3>Workout Notes: {item.notes}</h3>
+                            <h6>Workout Date: {item.date}</h6>
+                            <h6>Workout Duration: {item.duration}</h6>
+                            <h6>Workout Notes: {item.notes}</h6>
                             <button>Edit</button>
-                            <button>Delete</button>
+                            <button onClick={(event) => deleteHistoryItem(item)}>Delete</button>
                         </div>
                     );
                 })}

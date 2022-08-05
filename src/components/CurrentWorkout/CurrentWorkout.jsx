@@ -37,10 +37,10 @@ function CurrentWorkout(props) {
             <h6>Number of Sets: {numberSets}</h6>
             <h6>Duration: {duration}</h6>
             <h4>Exercises</h4>
-                {exercises.map((exercise, i)=>{
+                {exercises.map((exercise)=>{
                     return(
-                        <div>
-                            <h5 key={i}>{exercise.name}</h5>
+                        <div key={exercise.name}>
+                            <h5>{exercise.name}</h5>
                             <img src={exercise.gifUrl} alt={exercise.name}/>
                         </div>
                     )

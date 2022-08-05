@@ -23,6 +23,9 @@ import CurrentWorkout from '../CurrentWorkout/CurrentWorkout';
 import NewWorkout from '../NewWorkout/NewWorkout';
 import WorkoutHistory from '../WorkoutHistory/WorkoutHistory';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 import './App.css';
 
 
@@ -36,7 +39,15 @@ function App() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   return (
+    <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
     <Router>
       <div>
         <Nav />
@@ -147,6 +158,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

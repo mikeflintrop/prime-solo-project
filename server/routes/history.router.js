@@ -77,7 +77,7 @@ router.put('/:id', (req, res) => {
 		.then((result) => {
 			// Sends back the results in an object
 			res.send(result.rows);
-            res.sendStatus(200);
+            // res.sendStatus(200);
 		})
 		.catch((error) => {
 			console.log('error UPDATEing history', error);

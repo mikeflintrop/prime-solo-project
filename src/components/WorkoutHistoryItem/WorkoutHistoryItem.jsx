@@ -20,13 +20,13 @@ function WorkoutHistoryItem({item}) {
     console.log('editHistory', editHistory);
 
     // flip pics function
-    const handleRendering = () => {
-        if (isEditting) {
-            setIsEditting(false);
-        } else {
-            setIsEditting(true);
-        }
-    };
+    // const handleRendering = () => {
+    //     if (isEditting) {
+    //         setIsEditting(false);
+    //     } else {
+    //         setIsEditting(true);
+    //     }
+    // };
 
     const handleEditClick = (item) => {
         // dispatch student info to redux store
@@ -50,6 +50,8 @@ function WorkoutHistoryItem({item}) {
         event.preventDefault();
         console.log('editHistory in handleSubmit', editHistory);
 
+        setIsEditting(false);
+
         // PUT REQUEST to /students/:id
         axios.put(`/api/history/${editHistory.id}`, editHistory)
             .then( response => {
@@ -57,16 +59,16 @@ function WorkoutHistoryItem({item}) {
                 dispatch({ type: 'EDIT_CLEAR' });
 
                 // refresh will happen with useEffect on Home
-                // history.push('/history'); // back to list
+                history.push('/history'); // back to list
                 // setIsEditting(isEditting)
-                // setIsEditting(isEditting);
+                
                 dispatch({ type: "FETCH_HISTORY", payload: user.id });
 
 
             })
             .catch(error => {
                 console.log('error on PUT: ', error);
-            })   
+            })  
     };
 
     console.log('this is user id', user.id);

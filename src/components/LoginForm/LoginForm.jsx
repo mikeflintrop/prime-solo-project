@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -47,10 +48,10 @@ function LoginForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
+          {/* Username: */}
           <TextField
             id="outlined-basic"
-            label="Outlined" 
+            label="Username" 
             variant="outlined"
             type="text"
             name="username"
@@ -62,10 +63,10 @@ function LoginForm() {
       </div>
       <div>
         <label htmlFor="password">
-          Password:
+          {/* Password: */}
           <TextField
             id="outlined-basic"
-            label="Outlined" 
+            label="Password" 
             variant="outlined"
             type="password"
             name="password"
@@ -76,7 +77,15 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <Button 
+        variant="outlined"
+        className="btn" 
+        type="submit" 
+        name="submit" 
+        value="Log In"
+        >
+          LOGIN
+        </Button>
       </div>
     {/* </form> */}
     </Box>

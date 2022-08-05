@@ -17,6 +17,7 @@ function WorkoutHistoryItem({item}) {
     const [notes, setNotes] = useState('');
 
     const editHistory = useSelector((store) => store.editHistory);
+    console.log('editHistory', editHistory);
 
     // flip pics function
     const handleRendering = () => {
@@ -26,6 +27,16 @@ function WorkoutHistoryItem({item}) {
             setIsEditting(true);
         }
     };
+
+    const handleEditClick = (item) => {
+        // dispatch student info to redux store
+        setIsEditting(!isEditting);
+
+        dispatch ({ type: 'SET_EDIT_HISTORY', payload: item });
+        console.log('item in handleEditClick', item);
+        // route useer to Edit form
+        // history.push('/edit');
+    }
 
     function handleChange(event, property) {
         dispatch({ 
@@ -37,15 +48,21 @@ function WorkoutHistoryItem({item}) {
       // Called when the submit button is pressed
     function handleSubmit(event) {
         event.preventDefault();
+        console.log('editHistory in handleSubmit', editHistory);
 
         // PUT REQUEST to /students/:id
-        axios.put(`/history/${editStudent.id}`, editHistory)
+        axios.put(`/api/history/${editHistory.id}`, editHistory)
             .then( response => {
                 // clean up reducer data            
                 dispatch({ type: 'EDIT_CLEAR' });
 
                 // refresh will happen with useEffect on Home
-                // history.push('/'); // back to list
+                // history.push('/history'); // back to list
+                // setIsEditting(isEditting)
+                // setIsEditting(isEditting);
+                dispatch({ type: "FETCH_HISTORY", payload: user.id });
+
+
             })
             .catch(error => {
                 console.log('error on PUT: ', error);
@@ -69,17 +86,17 @@ function WorkoutHistoryItem({item}) {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
     };
 
-    const handleEditting = (event) => {
-        event.preventDefault();
+    // const handleEditting = (event) => {
+    //     event.preventDefault();
 
-        console.log("start of editTheItem");
-        // console.log('this is item.notes', item.notes);
-        dispatch({
-            type: 'UPDATE_HISTORY_ITEM',
-            payload: event.target.value
-        });
-        dispatch({ type: "FETCH_HISTORY", payload: user.id });
-    };
+    //     console.log("start of editTheItem");
+    //     // console.log('this is item.notes', item.notes);
+    //     dispatch({
+    //         type: 'UPDATE_HISTORY_ITEM',
+    //         payload: event.target.value
+    //     });
+    //     dispatch({ type: "FETCH_HISTORY", payload: user.id });
+    // };
 
 
     return (
@@ -88,14 +105,13 @@ function WorkoutHistoryItem({item}) {
             <h6>Workout Duration: {item.duration}</h6>
             <h6>Workout Notes: {item.notes}</h6>
             {!isEditting ? (
-                <button onClick={(event) => setIsEditting(!isEditting)}>Edit</button>
+                <button onClick={() => handleEditClick(item)}>Edit</button>
                 ) : (
-                <form onSubmit={handleEditting}>
+                <form onSubmit={handleSubmit}>
                     <input 
-                    onChange={(event) => setNotes(event.target.value)}
-                    type="text" 
-                    placeholder='update notes' 
-                    value={item.notes || ''}
+                    onChange={(event) => handleChange(event, 'notes')}
+                    placeholder='update notes'
+                    value={editHistory.notes} // important
                     />
                     <button type='submit'>Submit</button>
                 </form>

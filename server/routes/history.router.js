@@ -64,15 +64,16 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    console.log('This shall be req.params', req.params.id);
-    console.log('This shall be req.body', req.body.notes);
-	let id = req.params.id;
-
-    const user = req.user.id
+    console.log('This shall be req.user.id', req.user.id);
+    console.log('This shall be req.params.id', req.params.id);
+	let userId = req.user.id;
+    let workoutId = req.params.id;
+    const user = req.user
     console.log('This is the user', user);
+    console.log('req.body.notes:', req.body.notes);
 
     const queryText = `UPDATE "workout_history" SET "notes" = $1 WHERE id = $2;`;
-    pool.query(queryText, [req.body.notes, id])
+    pool.query(queryText, [req.body.notes, workoutId])
 		.then((result) => {
 			// Sends back the results in an object
 			res.send(result.rows);

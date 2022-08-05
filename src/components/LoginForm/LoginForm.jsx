@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -25,7 +29,16 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <Box
+    component="form"
+    sx={{
+      '& > :not(style)': { m: 1, width: '25ch' },
+    }}
+    noValidate
+    autoComplete="off"
+    className="formPanel" onSubmit={login}
+    >
+    {/* <form className="formPanel" onSubmit={login}> */}
       <h2>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
@@ -35,7 +48,10 @@ function LoginForm() {
       <div>
         <label htmlFor="username">
           Username:
-          <input
+          <TextField
+            id="outlined-basic"
+            label="Outlined" 
+            variant="outlined"
             type="text"
             name="username"
             required
@@ -47,7 +63,10 @@ function LoginForm() {
       <div>
         <label htmlFor="password">
           Password:
-          <input
+          <TextField
+            id="outlined-basic"
+            label="Outlined" 
+            variant="outlined"
             type="password"
             name="password"
             required
@@ -59,8 +78,11 @@ function LoginForm() {
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
-    </form>
+    {/* </form> */}
+    </Box>
   );
 }
 
 export default LoginForm;
+
+

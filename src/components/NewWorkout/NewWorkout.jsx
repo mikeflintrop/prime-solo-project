@@ -97,7 +97,7 @@ function NewWorkout(props) {
                 />
                 <button 
                 type='submit'
-                disabled={( workTime.length === 0 && restTime.length === 0 && numberSets.length === 0 && duration.length === 0) ? true : false }
+                disabled={( workTime.length === 0 || restTime.length === 0 || numberSets.length === 0 || duration.length === 0) ? true : false }
                 >Workout!</button>
             </form>
         </div>

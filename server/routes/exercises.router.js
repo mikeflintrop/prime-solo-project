@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         method: 'GET',
         url: 'https://exercisedb.p.rapidapi.com/exercises/target/abs',
         headers: {
-            'X-RapidAPI-Key': 'ffd515017bmsh7654bc328fdcf71p18bf99jsna21861a1756a',
+            'X-RapidAPI-Key': '0496c02c7fmsh5ea5d88b26edf8dp1da35djsn4fd4713ad7d0',
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
         }
     };

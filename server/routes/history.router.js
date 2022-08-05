@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 
     pool.query(queryText, [req.user.id, duration])
     .then(() => {
-    res.sendStatus(201);
+        res.sendStatus(201);
     })
     .catch((err) => {
         console.log("Error in server/route post", err);
@@ -54,11 +54,11 @@ router.delete('/:id', (req, res) => {
 
     pool.query(queryText, [id])
         .then((result) => {
-        res.sendStatus(201);
+            res.sendStatus(201);
         })
         .catch((error) => {
-        console.log('something wrong in /history DELETE', error);
-        res.sendStatus(500);
+            console.log('something wrong in /history DELETE', error);
+            res.sendStatus(500);
         })
     // endpoint functionality
 });

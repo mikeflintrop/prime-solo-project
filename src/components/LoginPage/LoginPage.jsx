@@ -7,6 +7,9 @@ function LoginPage() {
 
   return (
     <div>
+      <div>
+      <img src="images/steelcore_main.jpeg" alt="steelcore_main" />
+      </div>
       <LoginForm />
 
       <center>

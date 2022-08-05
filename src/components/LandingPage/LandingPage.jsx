@@ -17,6 +17,7 @@ function LandingPage() {
     <div className="container">
       <h2>{heading}</h2>
 
+      <img src=".../public/steelcore_main.jpeg" alt="seelcore_main" />
       <div className="grid">
         <div className="grid-col grid-col_4">
           <RegisterForm />

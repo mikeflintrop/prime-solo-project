@@ -9,7 +9,10 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
+      <img src="images/steelcore_main.jpeg" alt="steelcore_main" />
+      <div>
+        <LogOutButton className="btn" />
+      </div>
     </div>
   );
 }

@@ -19,7 +19,10 @@ function CurrentWorkout(props) {
     const duration = useSelector((store) => store.duration);
     const [heading, setHeading] = useState('Current Workout');
 
-    let results = [];
+    const [results, setResults] = useState([]);
+
+    let randomArray = [];
+    
 
     const returnToNewWorkout = () => {
         history.push('/new');
@@ -27,35 +30,28 @@ function CurrentWorkout(props) {
 
     useEffect(()=>{
         dispatch({type: 'FETCH_EXERCISES' });
-        // getRandom();
+        getRandom();
     },[])
 
     function getRandom(array, n) {
-        console.log('exercises:', exercises);
-        console.log('numberSets:', numberSets);
-        console.log('numberSets.val:', (numberSets.val));
-        var results = new Array(numberSets),
-            len = (exercises.length),
-            taken = new Array(len);
-        if (numberSets > len)
+        // console.log('exercises:', exercises);
+        // console.log('numberSets:', numberSets);
+        let randomNumber = numberSets;
+
+        randomArray = new Array(randomNumber);
+        console.log('results', randomArray);
+        let len = (exercises.length);
+        let taken = new Array(len);
+        if (randomNumber > len)
             throw new RangeError("getRandom: more elements taken than available");
-        while (numberSets.val--) {
-            var x = Math.floor(Math.random() * len);
-            results[numberSets] = exercises[x in taken ? taken[x] : x];
+        while (randomNumber--) {
+            let x = Math.floor(Math.random() * len);
+            randomArray[randomNumber] = exercises[x in taken ? taken[x] : x];
             taken[x] = --len in taken ? taken[len] : len;
         }
-        return results;
+        return setResults(randomArray);
     }
 
-    var getMeRandomElements = function(sourceArray, neededElements) {
-        var result = [];
-        for (var i = 0; i < neededElements; i++) {
-        var index = Math.floor(Math.random() * sourceArray.length);
-            result.push(sourceArray[index]);
-            sourceArray.splice(index, 1);
-        }
-        return result;
-    }
 
     return (
         <div>
@@ -78,7 +74,7 @@ function CurrentWorkout(props) {
                 variant="outlined" 
                 size="medium"
                 onClick={getRandom}
-                >Start Workout!
+                >New Workouts!
             </Button>
         </div>
     );

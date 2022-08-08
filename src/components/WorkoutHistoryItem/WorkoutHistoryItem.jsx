@@ -13,6 +13,8 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import moment from 'moment';
 import { format, compareAsc } from 'date-fns'
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -123,11 +125,10 @@ function WorkoutHistoryItem({item}) {
             <TableCell align="right">{item.notes}</TableCell>
             <TableCell align="center">            
                 {!isEditting ? (
-                    <Button 
-                    variant="outlined"
+                    <EditIcon 
+                    color="primary"
                     onClick={() => handleEditClick(item)}
-                    >Edit
-                    </Button>
+                    />
                     ) : (
                     <form onSubmit={handleSubmit}>
                         <TextField
@@ -147,12 +148,9 @@ function WorkoutHistoryItem({item}) {
                 )}
             </TableCell>
             <TableCell align="center">            
-                <Button 
-                // sx={{m: 2}}
-                variant="outlined"
+                <DeleteForeverTwoToneIcon
                 onClick={(event) => deleteHistoryItem(item)}
-                >REMOVE
-                </Button>
+                />
             </TableCell>
         </TableRow>
     );

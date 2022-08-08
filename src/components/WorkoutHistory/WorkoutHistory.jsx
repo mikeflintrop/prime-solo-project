@@ -84,7 +84,7 @@ function WorkoutHistory(props) {
         <div>
             <h2>{heading}</h2>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 25, maxWidth: 50}} aria-label="caption table">
+                <Table sx={{ minWidth: 10, maxWidth: 20}} aria-label="caption table">
                     <caption>* Remove Workout History by clicking the 'Remove' Button
                         < br />
                         * Edit Workout Notes by clicking the 'Edit' Button

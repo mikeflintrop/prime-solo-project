@@ -11,6 +11,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
+import moment from 'moment';
+import { format, compareAsc } from 'date-fns'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -27,6 +29,8 @@ function WorkoutHistoryItem({item}) {
 
     const editHistory = useSelector((store) => store.editHistory);
     console.log('editHistory', editHistory);
+
+    let itemDate = item.date;
 
     // flip pics function
     // const handleRendering = () => {
@@ -113,7 +117,7 @@ function WorkoutHistoryItem({item}) {
     return (
         <TableRow key={item.id}>
             <TableCell component="th" scope="row" align="center">
-                {item.date}
+            {format(new Date(itemDate), 'MM/dd/yyyy')}
             </TableCell>
             <TableCell align="center">{item.duration}</TableCell>
             <TableCell align="right">{item.notes}</TableCell>

@@ -121,7 +121,7 @@ function WorkoutHistoryItem({item}) {
             <TableCell component="th" scope="row" align="center">
             {format(new Date(itemDate), 'MM/dd/yyyy')}
             </TableCell>
-            <TableCell align="center">{item.duration}</TableCell>
+            <TableCell align="center">{item.duration} (mins)</TableCell>
             <TableCell align="right">{item.notes}</TableCell>
             <TableCell align="center">            
                 {!isEditting ? (

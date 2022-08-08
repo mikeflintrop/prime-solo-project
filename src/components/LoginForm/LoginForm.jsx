@@ -65,7 +65,7 @@ function LoginForm() {
         <label htmlFor="password">
           {/* Password: */}
           <TextField
-            id="outlined-basic"
+            id="outlined-basic2"
             label="Password" 
             variant="outlined"
             type="password"

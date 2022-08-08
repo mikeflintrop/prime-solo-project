@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
-// import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -70,36 +72,68 @@ function NewWorkout(props) {
     return (
         <div>
             <h2>{heading}</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                onChange={(event) => setWorkTime(event.target.value)}
-                placeholder='Work Time per Set (sec)'
-                value={workTime} // important
-                type="number"
+            <Box 
+            onSubmit={handleSubmit}
+            component="form"
+            sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+            >
+                <TextField
+                    // variant="outlined"
+                    id="outlined-number"
+                    label="Work Time per Set (sec)"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(event) => setWorkTime(event.target.value)}
+                    placeholder='seconds'
+                    value={workTime} // important
                 />
-                <input
-                onChange={(event) => setRestTime(event.target.value)}
-                placeholder='Rest Time per Set (sec)'
-                value={restTime} // important
-                type="number"
+                <TextField
+                    id="outlined-number2"
+                    label="Rest Time per Set (sec)"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(event) => setRestTime(event.target.value)}
+                    placeholder='seconds'
+                    value={restTime} // important
                 />
-                <input
-                onChange={(event) => setNumberSets(event.target.value)}
-                placeholder='Number of Sets'
-                value={numberSets} // important
-                type="number"
+                <TextField
+                    id="outlined-number3"
+                    label="Number of Sets"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(event) => setNumberSets(event.target.value)}
+                    placeholder='Number of Sets'
+                    value={numberSets} // important
                 />
-                <input
-                onChange={(event) => setDuration(event.target.value)}
-                placeholder='Total Duration (min)'
-                value={duration} // important
-                type="number"
+                <TextField
+                    id="outlined-number4"
+                    label="Total Duration (min)"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    onChange={(event) => setDuration(event.target.value)}
+                    placeholder='minutes'
+                    value={duration} // important
                 />
-                <button 
-                type='submit'
-                disabled={( workTime.length === 0 || restTime.length === 0 || numberSets.length === 0 || duration.length === 0) ? true : false }
-                >Workout!</button>
-            </form>
+                <Button 
+                    variant="outlined"
+                    type='submit'
+                    disabled={( workTime.length === 0 || restTime.length === 0 || numberSets.length === 0 || duration.length === 0) ? true : false }
+                >Workout!
+                </Button>
+            </Box>
+
         </div>
     );
 }

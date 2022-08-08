@@ -84,18 +84,18 @@ function WorkoutHistory(props) {
         <div>
             <h2>{heading}</h2>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 50, maxWidth: 100}} aria-label="caption table">
-                    <caption>* Remove Feedback by clicking the 'Remove' Button
+                <Table sx={{ minWidth: 25, maxWidth: 50}} aria-label="caption table">
+                    <caption>* Remove Workout History by clicking the 'Remove' Button
                         < br />
-                        * Clicking the 'GO BACK' button will return you to the beginning of the feedback form
+                        * Edit Workout Notes by clicking the 'Edit' Button
                     </caption>
                     <TableHead>
                     <TableRow>
-                        <TableCell align="center">Workout Date</TableCell>
-                        <TableCell align="center">Workout Duration</TableCell>
-                        <TableCell align="center">Workout Notes</TableCell>
-                        <TableCell align="center">Edit</TableCell>
-                        <TableCell align="center">Delete</TableCell>
+                        <TableCell align="center">Date</TableCell>
+                        <TableCell align="center">Duration</TableCell>
+                        <TableCell align="center">Notes</TableCell>
+                        <TableCell align="center"></TableCell>
+                        <TableCell align="center"></TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>

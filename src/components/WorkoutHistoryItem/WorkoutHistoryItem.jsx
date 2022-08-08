@@ -10,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -110,24 +111,46 @@ function WorkoutHistoryItem({item}) {
 
 
     return (
-        <div key={item.id} >
-            <h6>Workout Date: {item.date}</h6>
-            <h6>Workout Duration: {item.duration}</h6>
-            <h6>Workout Notes: {item.notes}</h6>
-            {!isEditting ? (
-                <button onClick={() => handleEditClick(item)}>Edit</button>
-                ) : (
-                <form onSubmit={handleSubmit}>
-                    <input 
-                    onChange={(event) => handleChange(event, 'notes')}
-                    placeholder='update notes'
-                    value={editHistory.notes} // important
-                    />
-                    <button type='submit'>Submit</button>
-                </form>
-            )}
-            <button onClick={(event) => deleteHistoryItem(item)}>Delete</button>
-        </div>
+        <TableRow key={item.id}>
+            <TableCell component="th" scope="row" align="center">
+                {item.date}
+            </TableCell>
+            <TableCell align="center">{item.duration}</TableCell>
+            <TableCell align="right">{item.notes}</TableCell>
+            <TableCell align="center">            
+                {!isEditting ? (
+                    <Button 
+                    variant="outlined"
+                    onClick={() => handleEditClick(item)}
+                    >Edit
+                    </Button>
+                    ) : (
+                    <form onSubmit={handleSubmit}>
+                        <TextField
+                            id="outlined-basic"
+                            label="Edit Notes" 
+                            variant="outlined"
+                            onChange={(event) => handleChange(event, 'notes')}
+                            placeholder='update notes'
+                            value={editHistory.notes} // important
+                        />
+                        <Button 
+                            variant="outlined"
+                            type='submit'
+                        >Submit
+                        </Button>
+                    </form>
+                )}
+            </TableCell>
+            <TableCell align="center">            
+                <Button 
+                // sx={{m: 2}}
+                variant="outlined"
+                onClick={(event) => deleteHistoryItem(item)}
+                >REMOVE
+                </Button>
+            </TableCell>
+        </TableRow>
     );
 }
 

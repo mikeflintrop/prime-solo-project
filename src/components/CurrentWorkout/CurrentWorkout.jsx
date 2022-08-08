@@ -4,6 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 
+import './CurrentWorkout.css';
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -65,7 +67,7 @@ function CurrentWorkout(props) {
                     return(
                         <div key={result?.name}>
                             <h5>{result?.name}</h5>
-                            <img src={result?.gifUrl} alt={result?.name}/>
+                            <img  className="gifs" src={result?.gifUrl} alt={result?.name}/>
                         </div>
                     )
                 })}

@@ -3,6 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import WorkoutHistoryItem from '../WorkoutHistoryItem/WorkoutHistoryItem';
+import Button from '@mui/material/Button';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -75,11 +83,30 @@ function WorkoutHistory(props) {
     return (
         <div>
             <h2>{heading}</h2>
-                {history?.map((item) => {
-                    return (
-                        <WorkoutHistoryItem item={item} key={item.id}/>
-                    )
-                })}
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 50, maxWidth: 100}} aria-label="caption table">
+                    <caption>* Remove Feedback by clicking the 'Remove' Button
+                        < br />
+                        * Clicking the 'GO BACK' button will return you to the beginning of the feedback form
+                    </caption>
+                    <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Workout Date</TableCell>
+                        <TableCell align="center">Workout Duration</TableCell>
+                        <TableCell align="center">Workout Notes</TableCell>
+                        <TableCell align="center">Edit</TableCell>
+                        <TableCell align="center">Delete</TableCell>
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {history?.map((item) => {
+                            return (
+                                <WorkoutHistoryItem item={item} key={item.id}/>
+                            )
+                        })}
+                    </TableBody>   
+                </Table>
+            </TableContainer>    
         </div>
     );
 }

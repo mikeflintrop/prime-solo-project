@@ -23,6 +23,7 @@ const navItems = [
 { name: 'Home', path: '/user' },
 { name: 'New Workout', path: '/new' },
 { name: 'Current Workout', path: '/current' },
+{ name: 'Workout History', path: '/history' },
 { name: 'About', path: '/about' },
 ];
 
@@ -114,12 +115,13 @@ return (
         {drawer}
         </Drawer>
     </Box>
-    <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
+    <Toolbar />
+    {/* <Box component="main" sx={{ p: 3 }}>
+        {/* <Toolbar /> */}
         {/* <Typography>
 
         </Typography> */}
-        </Box>
+        {/* </Box> */}
     </Box>
     );
 };

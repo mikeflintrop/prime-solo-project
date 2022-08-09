@@ -22,11 +22,13 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import CurrentWorkout from '../CurrentWorkout/CurrentWorkout';
 import NewWorkout from '../NewWorkout/NewWorkout';
 import WorkoutHistory from '../WorkoutHistory/WorkoutHistory';
+import DrawerAppBar from '../DrawerAppBar/DrawerAppBar';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import './App.css';
+
 
 
 
@@ -50,7 +52,8 @@ function App() {
     <CssBaseline />
     <Router>
       <div>
-        <Nav />
+        <DrawerAppBar />
+        {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />

@@ -63,9 +63,9 @@ function CurrentWorkout(props) {
             <h6>Number of Sets: {numberSets}</h6>
             <h6>Duration: {duration}</h6>
             <h4>Exercises</h4>
-                {results?.map((result)=>{
+                {results?.map((result, i)=>{
                     return(
-                        <div key={result?.name}>
+                        <div key={i}>
                             <h5>{result?.name}</h5>
                             <img  className="gifs" src={result?.gifUrl} alt={result?.name}/>
                         </div>

@@ -44,15 +44,22 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
+      primary: {
+        main: '#1a81f0',
+      },
     },
   });
+
+
+
 
   return (
     <ThemeProvider theme={darkTheme}>
     <CssBaseline />
     <Router>
       <div>
-        <DrawerAppBar />
+        <DrawerAppBar position="static" color="colorPrimary" enableColorOnDark>
+          </DrawerAppBar>
         {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

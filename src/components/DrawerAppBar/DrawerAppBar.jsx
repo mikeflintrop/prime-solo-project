@@ -13,9 +13,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import './DrawerAppBar.css';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'New Workout', 'Current Workout', 'About', 'Log Out' ];
+const navItems = [ 
+{ name: 'Home', path: '/user' },
+{ name: 'New Workout', path: '/new' },
+{ name: 'Current Workout', path: '/current' },
+{ name: 'About', path: '/about' },
+];
 
 function DrawerAppBar(props) {
     const { window } = props;
@@ -25,6 +34,8 @@ function DrawerAppBar(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    const dispatch = useDispatch();
+
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
         <Typography variant="h6" sx={{ my: 2 }}>
@@ -33,12 +44,21 @@ function DrawerAppBar(props) {
         <Divider />
         <List>
             {navItems.map((item) => (
-            <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item} />
+            <Link  className="navLinks" to={item.path} underline='none' key={item.name}>
+            
+                <ListItem key={item.name} disablePadding >
+                <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
+                <ListItemText primary={item.name} underline="none"/>
                 </ListItemButton>
             </ListItem>
+            </Link>
             ))}
+            <Toolbar />
+            <ListItem onClick={() => dispatch({ type: 'LOGOUT' })} disablePadding>
+                <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
+                <ListItemText primary='Log Out' />
+                </ListItemButton>
+            </ListItem>
         </List>
         </Box>
     );
@@ -52,13 +72,13 @@ return (
         <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="start"
+            edge="end"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
         >
             <MenuIcon />
         </IconButton>
-        <Typography
+        {/* <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
@@ -67,11 +87,14 @@ return (
         </Typography>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-            <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+            <Button key={item.name} sx={{ color: '#fff' }}>
+                {item.name}
             </Button>
             ))}
-        </Box>
+        </Box> */}
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            STEEL CORE
+        </Typography>
         </Toolbar>
     </AppBar>
     <Box component="nav">
@@ -93,9 +116,9 @@ return (
     </Box>
     <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Typography>
+        {/* <Typography>
 
-        </Typography>
+        </Typography> */}
         </Box>
     </Box>
     );

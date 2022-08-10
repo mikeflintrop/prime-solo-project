@@ -32,7 +32,7 @@ function CurrentWorkout(props) {
 
     useEffect(()=>{
         dispatch({type: 'FETCH_EXERCISES' });
-        getRandom(); // async and promises
+        // getRandom(); // async and promises
     },[])
 
     function getRandom(array, n) {
@@ -76,7 +76,7 @@ function CurrentWorkout(props) {
                 variant="outlined" 
                 size="medium"
                 onClick={getRandom}
-                >New Workouts!
+                >Get New Workouts!
             </Button>
         </div>
     );

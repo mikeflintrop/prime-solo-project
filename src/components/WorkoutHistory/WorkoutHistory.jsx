@@ -81,7 +81,7 @@ function WorkoutHistory(props) {
 
 
     return (
-        <div>
+        <div className="container">
             <h2>{heading}</h2>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 15, maxWidth: 15}} aria-label="caption table">

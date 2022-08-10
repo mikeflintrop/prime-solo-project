@@ -118,12 +118,12 @@ function WorkoutHistoryItem({item}) {
 
     return (
         <TableRow key={item.id}>
-            <TableCell component="th" scope="row" align="center">
+            <TableCell component="th" scope="row" align="center" sx={{width: '20%'}}>
             {format(new Date(itemDate), 'MM/dd/yyyy')}
             </TableCell>
-            <TableCell align="center">{item.duration} (mins)</TableCell>
-            <TableCell align="right">{item.notes}</TableCell>
-            <TableCell align="center">            
+            <TableCell align="center" sx={{width: '20%'}}>{item.duration} (mins)</TableCell>
+            <TableCell align="right" sx={{width: '30%'}}>{item.notes}</TableCell>
+            <TableCell align="center" sx={{width: '15%'}}>            
                 {!isEditting ? (
                     <EditIcon 
                     color="primary"
@@ -147,7 +147,7 @@ function WorkoutHistoryItem({item}) {
                     </form>
                 )}
             </TableCell>
-            <TableCell align="center">            
+            <TableCell align="center" sx={{width: '15%'}}>            
                 <DeleteForeverTwoToneIcon
                 color="error"
                 onClick={() => deleteHistoryItem(item)}

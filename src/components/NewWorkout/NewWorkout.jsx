@@ -70,7 +70,7 @@ function NewWorkout(props) {
 
 
     return (
-        <div>
+        <div className="container">
             <h2>{heading}</h2>
             <Box 
             onSubmit={handleSubmit}

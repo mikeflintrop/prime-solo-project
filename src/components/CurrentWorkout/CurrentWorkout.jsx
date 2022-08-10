@@ -56,17 +56,17 @@ function CurrentWorkout(props) {
 
 
     return (
-        <div>
+        <div className="container">
             <h2>{heading}</h2>
             <h6>Work Time: {workTime}</h6>
             <h6>Rest Time: {restTime}</h6>
             <h6>Number of Sets: {numberSets}</h6>
             <h6>Duration: {duration}</h6>
-            <h4>Exercises</h4>
+            <h3>Exercises</h3>
                 {results?.map((result, i)=>{
                     return(
                         <div key={i}>
-                            <h5>{result?.name}</h5>
+                            <h4>{result?.name}</h4>
                             <img  className="gifs" src={result?.gifUrl} alt={result?.name}/>
                         </div>
                     )
@@ -76,7 +76,7 @@ function CurrentWorkout(props) {
                 variant="outlined" 
                 size="medium"
                 onClick={getRandom}
-                >Get New Workouts!
+                >Get New Exercises!
             </Button>
         </div>
     );

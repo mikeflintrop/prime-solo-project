@@ -32,7 +32,7 @@ function CurrentWorkout(props) {
 
     useEffect(()=>{
         dispatch({type: 'FETCH_EXERCISES' });
-        getRandom();
+        getRandom(); // async and promises
     },[])
 
     function getRandom(array, n) {

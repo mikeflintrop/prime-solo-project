@@ -84,18 +84,18 @@ function WorkoutHistory(props) {
         <div>
             <h2>{heading}</h2>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 10, maxWidth: 20}} aria-label="caption table">
+                <Table sx={{ minWidth: 15, maxWidth: 15}} aria-label="caption table">
                     <caption>* Remove Workout by clicking the red 'Remove' Icon
                         < br />
                         * Edit Workout Notes by clicking the blue 'Edit' Icon
                     </caption>
                     <TableHead>
                     <TableRow>
-                        <TableCell align="center">Date</TableCell>
-                        <TableCell align="center">Duration</TableCell>
-                        <TableCell align="center">Notes</TableCell>
-                        <TableCell align="center"></TableCell>
-                        <TableCell align="center"></TableCell>
+                        <TableCell align="center" sx={{width: '20%'}}>Date</TableCell>
+                        <TableCell align="center" sx={{width: '20%'}}>Duration</TableCell>
+                        <TableCell align="center" sx={{width: '30%'}}>Notes</TableCell>
+                        <TableCell align="center" sx={{width: '15%'}}></TableCell>
+                        <TableCell align="center" sx={{width: '15%'}}></TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>

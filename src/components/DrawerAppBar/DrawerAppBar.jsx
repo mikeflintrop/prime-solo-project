@@ -15,6 +15,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import './DrawerAppBar.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -35,6 +37,11 @@ function DrawerAppBar(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -43,6 +50,7 @@ function DrawerAppBar(props) {
         dispatch ({ type: 'LOGOUT'});
         // route useer to login page
         history.push('/login');
+        // setOpen(!open);
     }
 
     const drawer = (
@@ -67,6 +75,12 @@ function DrawerAppBar(props) {
                 <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
                 <ListItemText primary='Log Out' />
                 </ListItemButton>
+                <Backdrop
+                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={open}
+                    onClick={handleClose}
+                >
+                </Backdrop>
             </ListItem>
         </List>
         </Box>

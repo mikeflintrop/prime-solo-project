@@ -27,7 +27,12 @@ function UserPage() {
             > Start New Workout!
         </Button>
       </div>
-      <img src="images/steelcore_main.jpeg" alt="steelcore_main" />
+      <div>
+
+      </div>
+      <div className="user-image">
+        <img src="images/steelcore_main.jpeg" alt="steelcore_main" />
+      </div>
       <div>
         <LogOutButton className="btn" />
       </div>

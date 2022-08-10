@@ -114,3 +114,8 @@ input {
 h2, h3 {
   color:rgba(254, 254, 254, 0.661)
 }
+
+.user-image { 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

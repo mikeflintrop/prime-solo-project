@@ -150,7 +150,7 @@ function WorkoutHistoryItem({item}) {
             <TableCell align="center">            
                 <DeleteForeverTwoToneIcon
                 color="error"
-                onClick={(event) => deleteHistoryItem(item)}
+                onClick={() => deleteHistoryItem(item)}
                 />
             </TableCell>
         </TableRow>

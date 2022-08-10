@@ -16,7 +16,7 @@ import Button from '@mui/material/Button';
 import './DrawerAppBar.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = [ 
@@ -36,6 +36,14 @@ function DrawerAppBar(props) {
     };
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const handleLogOut = () => {
+        // dispatch logout
+        dispatch ({ type: 'LOGOUT'});
+        // route useer to login page
+        history.push('/login');
+    }
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -55,7 +63,7 @@ function DrawerAppBar(props) {
             </Link>
             ))}
             <Toolbar />
-            <ListItem onClick={() => dispatch({ type: 'LOGOUT' })} disablePadding>
+            <ListItem onClick={handleLogOut} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
                 <ListItemText primary='Log Out' />
                 </ListItemButton>

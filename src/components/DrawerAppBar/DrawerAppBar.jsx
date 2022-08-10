@@ -101,7 +101,7 @@ return (
             </Button>
             ))}
         </Box> */}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color='#1a81f0'>
             STEEL CORE
         </Typography>
         </Toolbar>

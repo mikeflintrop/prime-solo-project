@@ -16,6 +16,11 @@ import { format, compareAsc } from 'date-fns'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 import Swal from 'sweetalert2'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -30,8 +35,10 @@ function WorkoutHistoryItem({item}) {
     const [isEditting, setIsEditting] = useState(false);
     const [notes, setNotes] = useState('');
 
+    const [open, setOpen] = React.useState(false);
+
     const editHistory = useSelector((store) => store.editHistory);
-    console.log('editHistory', editHistory);
+    // console.log('editHistory', editHistory);
 
     let itemDate = item.date;
 
@@ -47,30 +54,18 @@ function WorkoutHistoryItem({item}) {
     const handleEditClick = (item) => {
         // dispatch student info to redux store
         setIsEditting(!isEditting);
+        setOpen(true);
 
         dispatch ({ type: 'SET_EDIT_HISTORY', payload: item });
         console.log('item in handleEditClick', item);
-        // route useer to Edit form
-        // history.push('/edit');
-    }
 
-    function handleChange(event, property) {
-        Swal.fire({
-            title: "Authenicating for continuation",
-            text: "Test",
-            type: "input",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            animation: "slide-from-top",
-            inputPlaceholder: "Add notes!"
-        }, function(inputValue) {
-            if (inputValue === false) return false;
-            if (inputValue === "") {
-              Swal.fire.showInputError("You need to write something!");
-              return false
-            }
-            // swal("Nice!", "You wrote: " + inputValue, "success");
-          });
+            // route useer to Edit form
+            // history.push('/edit');
+    }
+    
+
+    function handleChange(event, property, ) {
+        
         dispatch({ 
             type: 'EDIT_ONCHANGE', 
             payload: { property: property, value: event.target.value }
@@ -83,6 +78,8 @@ function WorkoutHistoryItem({item}) {
         console.log('editHistory in handleSubmit', editHistory);
 
         setIsEditting(false);
+        setOpen(false);
+
         Swal.fire({
             title: 'Do you want to save the changes?',
             showDenyButton: true,
@@ -116,7 +113,7 @@ function WorkoutHistoryItem({item}) {
         })  
     };
 
-    console.log('this is user id', user.id);
+    // console.log('this is user id', user.id);
 
 
     useEffect(() => {
@@ -177,21 +174,26 @@ function WorkoutHistoryItem({item}) {
                     onClick={() => handleEditClick(item)}
                     />
                     ) : (
-                    <form onSubmit={handleSubmit}>
-                        <TextField
+                        <Dialog open={open} onClose={handleSubmit}>
+                        <DialogTitle> Add Notes</DialogTitle>
+                        <DialogContent>
+                            <TextField
                             id="outlined-basic"
-                            label="Edit Notes" 
+                            // label="Edit Notes" 
                             variant="outlined"
                             onChange={(event) => handleChange(event, 'notes')}
                             placeholder='update notes'
                             value={editHistory.notes} // important
-                        />
-                        <Button 
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button  
                             variant="outlined"
                             type='submit'
-                        >Submit
-                        </Button>
-                    </form>
+                            onClick={handleSubmit}>Submit
+                            </Button>
+                        </DialogActions>
+                    </Dialog>   
                 )}
             </TableCell>
             <TableCell align="center" sx={{width: '15%'}}>            

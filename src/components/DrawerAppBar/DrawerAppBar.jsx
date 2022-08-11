@@ -38,6 +38,7 @@ function DrawerAppBar(props) {
     };
 
     const [open, setOpen] = React.useState(false);
+
     const handleClose = () => {
         setOpen(false);
     };
@@ -67,6 +68,12 @@ function DrawerAppBar(props) {
                 <ListItemButton sx={{ textAlign: 'center', color: 'rgba(254, 254, 254, 0.661)' }} >
                 <ListItemText primary={item.name} underline="none"/>
                 </ListItemButton>
+                <Backdrop
+                    sx={{ color: 'rgba(254, 254, 254, 0.661)', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={open}
+                    onClick={handleClose}
+                >
+                </Backdrop>
             </ListItem>
             </Link>
             ))}
@@ -76,7 +83,7 @@ function DrawerAppBar(props) {
                 <ListItemText primary='Log Out' />
                 </ListItemButton>
                 <Backdrop
-                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    sx={{ color: 'rgba(254, 254, 254, 0.661)', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={open}
                     onClick={handleClose}
                 >

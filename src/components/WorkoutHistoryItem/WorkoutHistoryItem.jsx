@@ -15,6 +15,7 @@ import moment from 'moment';
 import { format, compareAsc } from 'date-fns'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import Swal from 'sweetalert2'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -96,11 +97,28 @@ function WorkoutHistoryItem({item}) {
     const deleteHistoryItem = (item) => {
         console.log("start of deleteTheItem");
         console.log('this is item.id', item.id);
-        dispatch({
-            type: 'DELETE_HISTORY_ITEM',
-            payload: item.id
-        });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, remove it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                'Removed!',
+                'Your workout has been removed.',
+                'success'
+                )
+                dispatch({
+                type: 'DELETE_HISTORY_ITEM',
+                payload: item.id
+                });
+            } 
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
+        }); 
     };
 
     // const handleEditting = (event) => {

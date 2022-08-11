@@ -166,7 +166,7 @@ function WorkoutHistoryItem({item}) {
             {format(new Date(itemDate), 'MM/dd/yyyy')}
             </TableCell>
             <TableCell align="center" sx={{width: '20%'}}>{item.duration} (mins)</TableCell>
-            <TableCell align="right" sx={{width: '30%'}}>{item.notes}</TableCell>
+            <TableCell align="center" sx={{width: '30%'}}>{item.notes}</TableCell>
             <TableCell align="center" sx={{width: '15%'}}>            
                 {!isEditting ? (
                     <EditIcon 

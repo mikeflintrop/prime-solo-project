@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
 
 import './CurrentWorkout.css';
 
@@ -66,11 +72,28 @@ function CurrentWorkout(props) {
                 {results?.map((result, i)=>{
                     return(
                         <div key={i}>
-                            <h4>{result?.name}</h4>
-                            <img  className="gifs" src={result?.gifUrl} alt={result?.name}/>
+                            <Card 
+                            className='exerciseCard'
+                            sx={{ maxWidth: 345}}>
+                                <CardMedia
+                                    className='exerciseGif'
+                                    component="img"
+                                    height="140"
+                                    image={result?.gifUrl}
+                                    alt={result?.name}
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="div" align="center">
+                                    {result?.name}
+                                </Typography>
+                                </CardContent>
+                            </Card>
+                            {/* <h4>{result?.name}</h4>
+                            <img  className="gifs" src={result?.gifUrl} alt={result?.name}/> */}
                         </div>
                     )
                 })}
+
 
             <Button 
                 variant="outlined" 

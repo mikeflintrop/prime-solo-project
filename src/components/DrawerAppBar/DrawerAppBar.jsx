@@ -64,7 +64,7 @@ function DrawerAppBar(props) {
             <Link  className="navLinks" to={item.path} underline='none' key={item.name}>
             
                 <ListItem key={item.name} disablePadding >
-                <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
+                <ListItemButton sx={{ textAlign: 'center', color: 'rgba(254, 254, 254, 0.661)' }} >
                 <ListItemText primary={item.name} underline="none"/>
                 </ListItemButton>
             </ListItem>
@@ -72,7 +72,7 @@ function DrawerAppBar(props) {
             ))}
             <Toolbar />
             <ListItem onClick={handleLogOut} disablePadding>
-                <ListItemButton sx={{ textAlign: 'center', color: '#fff' }} >
+                <ListItemButton sx={{ textAlign: 'center', color: 'rgba(254, 254, 254, 0.661)' }} >
                 <ListItemText primary='Log Out' />
                 </ListItemButton>
                 <Backdrop

@@ -55,6 +55,22 @@ function WorkoutHistoryItem({item}) {
     }
 
     function handleChange(event, property) {
+        Swal.fire({
+            title: "Authenicating for continuation",
+            text: "Test",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "Add notes!"
+        }, function(inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+              Swal.fire.showInputError("You need to write something!");
+              return false
+            }
+            // swal("Nice!", "You wrote: " + inputValue, "success");
+          });
         dispatch({ 
             type: 'EDIT_ONCHANGE', 
             payload: { property: property, value: event.target.value }
@@ -67,9 +83,17 @@ function WorkoutHistoryItem({item}) {
         console.log('editHistory in handleSubmit', editHistory);
 
         setIsEditting(false);
-
-        // PUT REQUEST to /students/:id
-        axios.put(`/api/history/${editHistory.id}`, editHistory)
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+        }).then((result) => {
+            // PUT REQUEST to /students/:id
+            if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+                axios.put(`/api/history/${editHistory.id}`, editHistory)
             .then( response => {
                 // clean up reducer data            
                 dispatch({ type: 'EDIT_CLEAR' });
@@ -85,6 +109,11 @@ function WorkoutHistoryItem({item}) {
             .catch(error => {
                 console.log('error on PUT: ', error);
             })  
+
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        })  
     };
 
     console.log('this is user id', user.id);

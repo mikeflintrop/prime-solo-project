@@ -65,13 +65,13 @@ function CurrentWorkout(props) {
     return (
         <div className="container">
             <h2>{heading}</h2>
-            
+
             <h6>Work Time: {workTime}</h6>
             <h6>Rest Time: {restTime}</h6>
             <h6>Number of Sets: {numberSets}</h6>
             <h6>Duration: {duration}</h6>
 
-            <Counter />
+            {/* <Counter /> */}
 
             <h3>Exercises</h3>
                 {results?.map((result, i)=>{

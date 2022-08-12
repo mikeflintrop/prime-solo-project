@@ -59,11 +59,11 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
 
   return (
     <div>
-      <p>{`${time.hours
+      <h1>{`${time.hours
         .toString()
         .padStart(2, "0")}:${time.minutes
         .toString()
-        .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</p>
+        .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</h1>
       <div>{over ? "Time's up!" : ""}</div>
       {/* <Button 
         variant="outlined" 

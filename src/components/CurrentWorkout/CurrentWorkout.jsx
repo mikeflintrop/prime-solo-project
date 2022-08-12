@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Counter from '../Counter/Counter'
+import Timer from '../Timer/Timer'
 
 
 import './CurrentWorkout.css';
@@ -71,7 +71,7 @@ function CurrentWorkout(props) {
             <h6>Number of Sets: {numberSets}</h6>
             <h6>Duration: {duration}</h6>
 
-            {/* <Counter /> */}
+            <Timer duration={duration}/>
 
             <h3>Exercises</h3>
                 {results?.map((result, i)=>{

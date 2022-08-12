@@ -1,3 +1,14 @@
 .timer {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    /* height: 200px; */
+};
+
+.timerButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 200px; */
 };

@@ -72,21 +72,23 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
         >
         Start
       </Button> */}
-      <Button 
-        variant="outlined" 
-        size="large"
-        color="error"
-        onClick={() => setPaused(!paused)}>
-        {paused ? <Button>Resume</Button> : "Pause"}
-      </Button>
-      <Button 
-        variant="outlined" 
-        size="large"
-        color="success"
-        onClick={() => reset()}
-        >
-        Restart
-      </Button>
+      <div className="timerButtons">
+          <Button 
+            variant="outlined" 
+            size="large"
+            color="error"
+            onClick={() => setPaused(!paused)}>
+            {paused ? <Button>Resume</Button> : "Pause"}
+          </Button>
+          <Button 
+            variant="outlined" 
+            size="large"
+            color="success"
+            onClick={() => reset()}
+            >
+            Restart
+          </Button>
+      </div> 
     </div>
   );
 }

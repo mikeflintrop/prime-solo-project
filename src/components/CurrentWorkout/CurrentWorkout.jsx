@@ -76,7 +76,7 @@ function CurrentWorkout(props) {
 
             <Timer duration={duration}/>
 
-            <h3>Exercises</h3>
+            <h2>Exercises</h2>
                 {results?.map((result, i)=>{
                     return(
                         <div key={i}>

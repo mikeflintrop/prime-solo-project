@@ -42,7 +42,7 @@ function AboutPage() {
           <h3>LinkedIn</h3>
           <ul className="noBullets">
             <li>
-              <a href="https://www.linkedin.com/in/mike-f-a787a8246/">Mike Flintrop</a>
+              <a className="link" href="https://www.linkedin.com/in/mike-f-a787a8246/">Mike Flintrop</a>
             </li>
           </ul> 
       </div>

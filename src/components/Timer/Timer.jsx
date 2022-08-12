@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@mui/material/Button';
 
 // import "./styles.css";
-
-
 
 function Timer({ hours = 0, duration, seconds = 0 }) {
 
@@ -53,21 +52,41 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
     setOver(false);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     let timerID = setInterval(() => tick(), 1000);
     return () => clearInterval(timerID);
   });
 
   return (
     <div>
-      <p>{`${time.minutes
+      <p>{`${time.hours
+        .toString()
+        .padStart(2, "0")}:${time.minutes
         .toString()
         .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</p>
       <div>{over ? "Time's up!" : ""}</div>
-      <button onClick={() => setPaused(!paused)}>
-        {paused ? "Resume" : "Pause"}
-      </button>
-      <button onClick={() => reset()}>Restart</button>
+      {/* <Button 
+        variant="outlined" 
+        size="large" 
+        onClick={() => start()}
+        >
+        Start
+      </Button> */}
+      <Button 
+        variant="outlined" 
+        size="large"
+        color="error"
+        onClick={() => setPaused(!paused)}>
+        {paused ? <Button>Resume</Button> : "Pause"}
+      </Button>
+      <Button 
+        variant="outlined" 
+        size="large"
+        color="success"
+        onClick={() => reset()}
+        >
+        Restart
+      </Button>
     </div>
   );
 }

@@ -103,6 +103,7 @@ function CurrentWorkout(props) {
             <Button 
                 variant="outlined" 
                 size="large"
+                color="secondary"
                 onClick={getRandom}
                 >Get New Exercises!
             </Button>

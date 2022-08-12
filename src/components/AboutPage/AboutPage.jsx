@@ -15,9 +15,28 @@ function AboutPage() {
         <div>
           <img src="images/steelcore_main.jpeg" alt="steelcore_main" />
         </div>
-        <p>TODO:
-          Fill in this page with info about the APP!
-        </p>
+          <h3>Next Steps</h3>
+            <ul>
+              <li>Expand the types of workouts</li>
+            </ul>
+          <h3>Tech Used</h3>
+            <ul>
+              <li>React</li>
+              <li>Redux</li>
+              <li>Redux-Saga</li>
+              <li>Node</li>
+              <li>Express</li>
+              <li>Postgres</li>
+              <li>Material UI</li>
+              <li>Sweet Alerts 2</li>
+              <li>Date-fns</li>
+            </ul>
+          <h3>Thank You</h3>
+            <ul>
+              <li>My Family and Friends</li>
+              <li>Jemisin Cohort</li>
+              <li>Instructor Liz</li>
+            </ul>
       </div>
     </div>
   );

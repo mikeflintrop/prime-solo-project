@@ -60,9 +60,7 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
 
   return (
     <div>
-      <p>{`${time.hours
-        .toString()
-        .padStart(2, "0")}:${time.minutes
+      <p>{`${time.minutes
         .toString()
         .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</p>
       <div>{over ? "Time's up!" : ""}</div>

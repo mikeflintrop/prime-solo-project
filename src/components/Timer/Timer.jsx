@@ -64,7 +64,7 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
         .padStart(2, "0")}:${time.minutes
         .toString()
         .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</h1>
-      <div>{over ? "Time's up!" : ""}</div>
+      <div>{over ? <h1>Great Workout!</h1> : ""}</div>
       {/* <Button 
         variant="outlined" 
         size="large" 

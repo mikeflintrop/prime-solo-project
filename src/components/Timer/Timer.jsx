@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 
-// import "./styles.css";
+import "./Timer.css";
 
 function Timer({ hours = 0, duration, seconds = 0 }) {
 
@@ -58,7 +58,7 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
   });
 
   return (
-    <div>
+    <div className="timer">
       <h1>{`${time.hours
         .toString()
         .padStart(2, "0")}:${time.minutes

@@ -66,10 +66,13 @@ function CurrentWorkout(props) {
         <div className="container">
             <h2>{heading}</h2>
 
-            <h6>Work Time: {workTime}</h6>
-            <h6>Rest Time: {restTime}</h6>
+            <h4>
+                <span className="titles">Work Time:</span> {workTime}
+                <span className="titles">Rest Time:</span> {restTime}
+                <span className="titles">Number of Sets:</span> {numberSets}</h4>
+            {/* <h6>Rest Time: {restTime}</h6>
             <h6>Number of Sets: {numberSets}</h6>
-            <h6>Duration: {duration}</h6>
+            <h6>Duration: {duration}</h6> */}
 
             <Timer duration={duration}/>
 
@@ -103,7 +106,6 @@ function CurrentWorkout(props) {
             <Button 
                 variant="outlined" 
                 size="large"
-                color="secondary"
                 onClick={getRandom}
                 >Get New Exercises!
             </Button>

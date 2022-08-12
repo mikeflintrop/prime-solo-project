@@ -39,6 +39,12 @@ function AboutPage() {
               <li>Jemisin Cohort</li>
               <li>Instructor Liz</li>
             </ul>
+          <h3>LinkedIn</h3>
+          <ul className="noBullets">
+            <li>
+              <a href="https://www.linkedin.com/in/mike-f-a787a8246/">Mike Flintrop</a>
+            </li>
+          </ul> 
       </div>
     </div>
   );

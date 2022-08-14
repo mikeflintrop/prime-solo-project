@@ -74,6 +74,7 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
       </Button> */}
       <div className="timerButtons">
           <Button 
+            sx={{m:1}}
             variant="outlined" 
             size="large"
             color="error"
@@ -81,6 +82,7 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
             {paused ? <Button>Resume</Button> : "Pause"}
           </Button>
           <Button 
+            sx={{m: 1}}
             variant="outlined" 
             size="large"
             color="success"

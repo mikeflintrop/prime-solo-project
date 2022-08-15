@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// post duration to db
 function* postDuration(action) {
     try {
         const config = {
@@ -17,11 +17,6 @@ function* postDuration(action) {
         console.log('action.payload in postDuration:', duration)
 
         yield axios.post('/api/history', duration, config);
-        // yield put({type: 'POST_DURATION', payload: action.payload});
-    // now that the session has given us a user object
-    // with an id and username set the client-side user object to let
-    // the client-side code know the user is logged in
-        // yield put({ type: 'SET_WORK_TIME', payload: response.data });
     } catch (error) {
         console.log('Error POSTing duration', error);
     }

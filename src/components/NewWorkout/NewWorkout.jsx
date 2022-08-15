@@ -14,8 +14,6 @@ function NewWorkout(props) {
   // a default value of 'Functional Component'
     const dispatch = useDispatch();
     const history = useHistory();
-    // const exercises = useSelector((store) => store.exercises);
-    // const editStudent = useSelector((store) => store.editStudent);
     const [heading, setHeading] = useState('New Workout');
     const [workTime, setWorkTime] = useState('');
     const [restTime, setRestTime] = useState('');
@@ -23,8 +21,7 @@ function NewWorkout(props) {
     const [duration, setDuration] = useState('');
 
     useEffect(()=>{
-        // dispatch({type: 'FETCH_EXERCISES' });
-        // dispatch({type: 'FETCH_GENRES', payload: id });
+
     },[])
 
     // Called when the submit button is pressed
@@ -53,21 +50,6 @@ function NewWorkout(props) {
         setNumberSets('');
         setDuration('');
     }
-        // PUT REQUEST to /students/:id
-    //     axios.post(`/students/${editStudent.id}`, editStudent)
-    //         .then( response => {
-    //             // clean up reducer data            
-    //             dispatch({ type: 'EDIT_CLEAR' });
-
-    //             // refresh will happen with useEffect on Home
-    //             history.push('/current'); // back to list
-    //         })
-    //         .catch(error => {
-    //             console.log('error in POSTing: ', error);
-    //         })
-        
-    // };
-
 
     return (
         <div className="container">

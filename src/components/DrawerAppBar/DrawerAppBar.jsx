@@ -17,7 +17,6 @@ import './DrawerAppBar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-
 import { Link, useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -51,7 +50,6 @@ function DrawerAppBar(props) {
         dispatch ({ type: 'LOGOUT'});
         // route useer to login page
         history.push('/login');
-        // setOpen(!open);
     }
 
     const drawer = (
@@ -108,20 +106,6 @@ return (
         >
             <MenuIcon />
         </IconButton>
-        {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-        >
-            STEEL CORE
-        </Typography>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-            <Button key={item.name} sx={{ color: '#fff' }}>
-                {item.name}
-            </Button>
-            ))}
-        </Box> */}
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color='#1a81f0'>
             STEEL CORE
         </Typography>
@@ -145,12 +129,6 @@ return (
         </Drawer>
     </Box>
     <Toolbar />
-    {/* <Box component="main" sx={{ p: 3 }}>
-        {/* <Toolbar /> */}
-        {/* <Typography>
-
-        </Typography> */}
-        {/* </Box> */}
     </Box>
     );
 };

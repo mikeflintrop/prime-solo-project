@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
-
 import "./Timer.css";
 
 function Timer({ hours = 0, duration, seconds = 0 }) {
@@ -65,13 +64,6 @@ function Timer({ hours = 0, duration, seconds = 0 }) {
         .toString()
         .padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}`}</h1>
       <div>{over ? <h1>Great Workout!</h1> : ""}</div>
-      {/* <Button 
-        variant="outlined" 
-        size="large" 
-        onClick={() => start()}
-        >
-        Start
-      </Button> */}
       <div className="timerButtons">
           <Button 
             sx={{m:1}}

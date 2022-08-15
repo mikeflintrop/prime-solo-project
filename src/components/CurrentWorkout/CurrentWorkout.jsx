@@ -9,16 +9,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Timer from '../Timer/Timer'
-
-
 import './CurrentWorkout.css';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
 function CurrentWorkout(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
     const dispatch = useDispatch();
     const history = useHistory();
     const exercises = useSelector((store) => store.exercises);
@@ -39,7 +33,6 @@ function CurrentWorkout(props) {
 
     useEffect(()=>{
         dispatch({type: 'FETCH_EXERCISES' });
-        // getRandom(); // async and promises
     },[])
 
     function getRandom(array, n) {
@@ -70,9 +63,6 @@ function CurrentWorkout(props) {
                 <span className="titles">Work Time:</span> {workTime}
                 <span className="titles">Rest Time:</span> {restTime}
                 <span className="titles">Number of Sets:</span> {numberSets}</h4>
-            {/* <h6>Rest Time: {restTime}</h6>
-            <h6>Number of Sets: {numberSets}</h6>
-            <h6>Duration: {duration}</h6> */}
 
             <Timer duration={duration}/>
 
@@ -96,8 +86,6 @@ function CurrentWorkout(props) {
                                 </Typography>
                                 </CardContent>
                             </Card>
-                            {/* <h4>{result?.name}</h4>
-                            <img  className="gifs" src={result?.gifUrl} alt={result?.name}/> */}
                         </div>
                     )
                 })}

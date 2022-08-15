@@ -34,33 +34,20 @@ function WorkoutHistoryItem({item}) {
     const [heading, setHeading] = useState('Workout History');
     const [isEditting, setIsEditting] = useState(false);
     const [notes, setNotes] = useState('');
-
     const [open, setOpen] = React.useState(false);
-
     const editHistory = useSelector((store) => store.editHistory);
     // console.log('editHistory', editHistory);
 
     let itemDate = item.date;
 
-    // flip pics function
-    // const handleRendering = () => {
-    //     if (isEditting) {
-    //         setIsEditting(false);
-    //     } else {
-    //         setIsEditting(true);
-    //     }
-    // };
-
     const handleEditClick = (item) => {
-        // dispatch student info to redux store
+
         setIsEditting(!isEditting);
         setOpen(true);
 
         dispatch ({ type: 'SET_EDIT_HISTORY', payload: item });
         console.log('item in handleEditClick', item);
 
-            // route useer to Edit form
-            // history.push('/edit');
     }
     
 
@@ -87,7 +74,7 @@ function WorkoutHistoryItem({item}) {
             confirmButtonText: 'Save',
             denyButtonText: `Don't save`,
         }).then((result) => {
-            // PUT REQUEST to /students/:id
+            // PUT REQUEST to /history/:id
             if (result.isConfirmed) {
                 Swal.fire('Saved!', '', 'success')
                 axios.put(`/api/history/${editHistory.id}`, editHistory)
@@ -97,10 +84,8 @@ function WorkoutHistoryItem({item}) {
 
                 // refresh will happen with useEffect on Home
                 history.push('/history'); // back to list
-                // setIsEditting(isEditting)
                 
                 dispatch({ type: "FETCH_HISTORY", payload: user.id });
-
 
             })
             .catch(error => {
@@ -114,7 +99,6 @@ function WorkoutHistoryItem({item}) {
     };
 
     // console.log('this is user id', user.id);
-
 
     useEffect(() => {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
@@ -146,19 +130,6 @@ function WorkoutHistoryItem({item}) {
         dispatch({ type: "FETCH_HISTORY", payload: user.id });
         }); 
     };
-
-    // const handleEditting = (event) => {
-    //     event.preventDefault();
-
-    //     console.log("start of editTheItem");
-    //     // console.log('this is item.notes', item.notes);
-    //     dispatch({
-    //         type: 'UPDATE_HISTORY_ITEM',
-    //         payload: event.target.value
-    //     });
-    //     dispatch({ type: "FETCH_HISTORY", payload: user.id });
-    // };
-
 
     return (
         <TableRow key={item.id}>

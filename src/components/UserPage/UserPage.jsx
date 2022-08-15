@@ -2,13 +2,11 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-
 import Button from '@mui/material/Button';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-
   const history = useHistory();
 
   const returnToNewWorkout = () => {

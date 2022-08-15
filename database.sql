@@ -1,4 +1,4 @@
-
+-- Create db named 'prime_app' or change name in pool to  match db name 
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
@@ -12,9 +12,9 @@ CREATE TABLE "user" (
 
 CREATE TABLE "workout_history" (
     "id" SERIAL PRIMARY KEY,
-    "user_id" INTEGER REFERENCES "user" UNIQUE NOT NULL,
+    "user_id" INTEGER REFERENCES "user" NOT NULL,
     "duration" INTEGER,
-    "date" DATE NOT NULL,
+    "date" DATE NOT NULL DEFAULT current_date,
     "notes" VARCHAR (100)
 );
 
